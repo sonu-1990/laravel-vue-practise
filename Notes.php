@@ -34,5 +34,6 @@ $fa-font-path:"../webfonts";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
 
-12 > Change profile and logo on master.blade.php
+12 > Change profile and logo on master.blade.php 
+(We have used admin-lte index source code to make master.blade.php)
 13 > font awesome icon is not working so go to matser.blade.php and add proper font awesome icon
