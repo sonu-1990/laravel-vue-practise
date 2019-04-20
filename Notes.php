@@ -74,5 +74,8 @@ Route::get('{path}', 'HomeController@index')->name('path', '([A-Za-z\d-\/_.]+)?'
 with the help of active class of link.
 
 20 > If we want to write css for anything we can write it in variable.scss
+21 > Create user component then go to admin-lte index page and copy responsive
+table and paste into the user component make some changes and add new 
+button for creating new user as well as add new bootstrap modal 
 
 
