@@ -57,5 +57,20 @@ const app = new Vue({
     el: '#app',
     router
 });
+18 > If you want to access url without # then you need to add 
+mode: 'history' in
+const router = new VueRouter({
+    mode: 'history',
+    routes // short for `routes: routes`
+})
+
+because of history mode we are able to access url without # symbol
+but when we enter to the url in it gives error beacuse after removing hash symobol
+it consider as a laravel route but laravel web.php is't have route like as we have 
+entered so we need to add above line 
+Route::get('{path}', 'HomeController@index')->name('path', '([A-Za-z\d-\/_.]+)?');
+
+19 > Now if we want to show active link then you should write some css 
+with the help of active class of link 
 
 

@@ -84,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				</router-link>
           	</li>
 			<li class="nav-item has-treeview">
-				<a href="#" class="nav-link active">
+				<a href="#" class="nav-link">
 				<i class="nav-icon fa fa-cog"></i>
 				<p>
 					Management

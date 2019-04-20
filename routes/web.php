@@ -18,3 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('{path}', 'HomeController@index')->name('path', '([A-Za-z\d-\/_.]+)?');
+
