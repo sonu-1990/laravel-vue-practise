@@ -14,7 +14,9 @@ Vue.use(VueRouter)
 
 const routes = [
     { path: '/dashboard', component: require('./components/Dashboard.vue') },
-    { path: '/profile', component: require('./components/Profile.vue')}
+    { path: '/profile', component: require('./components/Profile.vue')},
+    { path: '/users', component: require('./components/Users.vue')}
+
 ]
   
 const router = new VueRouter({

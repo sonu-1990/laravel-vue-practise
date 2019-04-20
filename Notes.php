@@ -71,6 +71,8 @@ entered so we need to add above line
 Route::get('{path}', 'HomeController@index')->name('path', '([A-Za-z\d-\/_.]+)?');
 
 19 > Now if we want to show active link then you should write some css 
-with the help of active class of link 
+with the help of active class of link.
+
+20 > If we want to write css for anything we can write it in variable.scss
 
 
