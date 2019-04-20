@@ -37,3 +37,25 @@ $fa-font-path:"../webfonts";
 12 > Change profile and logo on master.blade.php 
 (We have used admin-lte index source code to make master.blade.php)
 13 > font awesome icon is not working so go to matser.blade.php and add proper font awesome icon
+14 > change font awesome icon on master.blade.php
+15 > npm install vue-router
+16 > Go to resources/asset/js/app.js
+17 > import below above vue instance
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+configure vue 
+const routes = [
+    { path: '/dashboard', component: require('./components/Dashboard.vue') },
+    { path: '/profile', component: require('./components/Profile.vue')}
+]
+const router = new VueRouter({
+    routes // short for `routes: routes`
+})
+add above route 
+const app = new Vue({
+    el: '#app',
+    router
+});
+
+
