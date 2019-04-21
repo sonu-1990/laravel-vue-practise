@@ -95,6 +95,38 @@ data() {
         })
     }
 },
+and send requst as this.form.post('users')
+where form is like 
+<form @submit.prevent="createUser"> where createUser is the method
+
+laravel resource controller route should always at the end of the all
+routes in web.php
+23 > Include model in controller and for password include hash as well
+use App\User;
+use Hash; 
+and then return create user as
+return User::create([
+    'name' => $request['name'],
+    'email' => $request['email'],
+    'type' => $request['type'],
+    'bio' => $request['bio'],
+    'photo' => $request['photo'],
+    'password' => Hash::make($request['password'])
+]);
+
+24 > For laravel backend validation we need to write
+$this->validate($request,
+[
+    'name' => 'required|string|max:191',
+    'email' => 'required|string:email:max:191|unique:users',
+    'password' => 'required|string|min:6',
+    'type' => 'required'
+]
+);
+This will automatically reflect the errors on form because we use vue form
+
+
+
 
 
 
