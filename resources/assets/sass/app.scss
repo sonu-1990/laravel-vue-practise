@@ -23,6 +23,9 @@ $fa-font-path:"../webfonts";
     background-color:#007bff !important;
     color:#ffffff !important;
 }
+select.form-control:not([size]):not([multiple]) {
+    height: 33px !important;
+}
 
 
 

@@ -77,5 +77,11 @@ with the help of active class of link.
 21 > Create user component then go to admin-lte index page and copy responsive
 table and paste into the user component make some changes and add new 
 button for creating new user as well as add new bootstrap modal 
+21 > npm i axios vform (for laravel backend validation)
+import { Form, HasError, AlertError } from 'vform'
+window.Form = Form;
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+
 
 
