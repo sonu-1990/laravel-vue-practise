@@ -98,9 +98,7 @@ data() {
 and send requst as this.form.post('users')
 where form is like 
 <form @submit.prevent="createUser"> where createUser is the method
-
-laravel resource controller route should always at the end of the all
-routes in web.php
+include route in api.php
 23 > Include model in controller and for password include hash as well
 use App\User;
 use Hash; 
@@ -124,7 +122,26 @@ $this->validate($request,
 ]
 );
 This will automatically reflect the errors on form because we use vue form
+then if you want to load all the data in database then you need to create 
+function in 
+created / mounted of vue.js component
+such as 
+loadUsers() {
+    axios.get('/api/users')
+    .then((response) => {
+        this.users = response.data.data
+    })
+    .catch(() => {
+    })
+},
 
+we can call the same method loadUsers() from created
+so that whenever page is loaded all the data will get 
+
+if you want to show all the data then first check data have something in it with 
+the help of v-if 
+and then use v-for="(user, index) in users" :key="user.id" note index should be 
+the next param 
 
 
 
