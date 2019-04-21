@@ -82,6 +82,19 @@ import { Form, HasError, AlertError } from 'vform'
 window.Form = Form;
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
+22 > Add form to laravel user modal and then
+data() {
+    return {
+        form:new Form({
+            name:'',
+            email:'',
+            password:'',
+            type:'',
+            bio:'',
+            photo:''
+        })
+    }
+},
 
 
 
