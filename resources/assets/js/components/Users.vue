@@ -116,7 +116,8 @@
     export default {
         data() {
             return {
-                users: {},
+                users: {}, 
+                loading: false,
                 form:new Form({
                     name:'',
                     email:'',
@@ -129,19 +130,26 @@
         },
         methods: {
             loadUsers() {
+                this.$Progress.start()
                 axios.get('/api/users')
                 .then((response) => {
                     this.users = response.data.data
+                    this.$Progress.finish()
                 })
-                .catch(() => {
+                .catch((error) => {
+                    this.$Progress.fail()
                 })
             },
             createUser() {
+                this.$Progress.start()
                 this.form.post('api/users')
+                this.$Progress.finish()
             }
         },
         created() {
+            this.$Progress.start()
             this.loadUsers();
+            this.$Progress.finish()
         }
     }
 </script>

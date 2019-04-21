@@ -153,9 +153,27 @@ Vue.filter('capitalize', function (value) {
 24 > For date formatting we are going to use moment.js
 npm install moment --save
 
-Vue.filter('myDate', function(created_at) {
+Vue.filter('dateFormat', function(created_at) {
     return moment(created_at).format('MMMM Do YYYY');
 })
+
+25 > npm install vue-progressbar --save
+for showing progressbar when data is saved or updated or deleted.
+
+in app.js
+import VueProgressBar from 'vue-progressbar'
+
+let options = {
+    color: 'rgb(143, 255, 199)',
+    failedColor: 'red',
+    height: '80px'
+}
+Vue.use(VueProgressBar, options)
+Vue.use(VueProgressBar, options)
+
+in master.blade.php
+<vue-progress-bar></vue-progress-bar>
+
 
 
 

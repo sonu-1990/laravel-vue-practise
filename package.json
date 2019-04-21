@@ -17,12 +17,17 @@
         "jquery": "^3.2",
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
-        "vue": "^2.5.7"
+        "vue": "^2.6.10"
     },
     "dependencies": {
         "admin-lte": "^3.0.0-alpha.2",
+        "bootstrap": "^4.3.1",
+        "bootstrap-vue": "^2.0.0-rc.18",
         "moment": "^2.24.0",
+        "nprogress": "^0.2.0",
         "vform": "^1.0.0",
-        "vue-router": "^3.0.6"
+        "vue-progressbar": "^0.7.5",
+        "vue-router": "^3.0.6",
+        "vue-simple-spinner": "^1.2.8"
     }
 }

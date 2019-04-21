@@ -11,6 +11,7 @@ window.Vue = require('vue');
 import moment from 'moment'
 import { Form, HasError, AlertError } from 'vform'
 
+
 window.Form = Form;
 
 Vue.component(HasError.name, HasError)
@@ -18,6 +19,15 @@ Vue.component(AlertError.name, AlertError)
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+
+import VueProgressBar from 'vue-progressbar'
+
+let options = {
+    color: 'rgb(143, 255, 199)',
+    failedColor: 'red',
+    height: '80px'
+}
+Vue.use(VueProgressBar, options)
 
 Vue.filter('capitalize', function (value) {
      if (!value) return ''
@@ -27,6 +37,7 @@ Vue.filter('capitalize', function (value) {
 Vue.filter('dateFormat', function(created_at) {
     return moment(created_at).format('MMMM Do YYYY');
 })
+
 let axios = require('axios');
 const routes = [
     { path: '/dashboard', component: require('./components/Dashboard.vue') },
