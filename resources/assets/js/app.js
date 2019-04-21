@@ -8,6 +8,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import moment from 'moment'
 import { Form, HasError, AlertError } from 'vform'
 
 window.Form = Form;
@@ -18,6 +19,14 @@ Vue.component(AlertError.name, AlertError)
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
+Vue.filter('capitalize', function (value) {
+     if (!value) return ''
+    value = value.toString()
+    return value.charAt(0).toUpperCase() + value.slice(1)
+})
+Vue.filter('dateFormat', function(created_at) {
+    return moment(created_at).format('MMMM Do YYYY');
+})
 let axios = require('axios');
 const routes = [
     { path: '/dashboard', component: require('./components/Dashboard.vue') },

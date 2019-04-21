@@ -30,8 +30,8 @@
                             <td>{{ index + 1 }}</td>
                             <td>{{ user.name }}</td>
                             <td>{{ user.email }}</td>
-                            <td>{{ user.type}}</td>
-                            <td>{{ user.created_at}}</td>
+                            <td>{{ user.type | capitalize}}</td>
+                            <td>{{ user.created_at | dateFormat }}</td>
                             <td>
                                 <a href="#">
                                     <i class="fa fa-edit"></i>

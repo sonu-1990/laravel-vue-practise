@@ -143,6 +143,19 @@ the help of v-if
 and then use v-for="(user, index) in users" :key="user.id" note index should be 
 the next param 
 
+23 > For custom filter we can create filter by the following way.
+Vue.filter('capitalize', function (value) {
+    if (!value) return ''
+    value = value.toString()
+    return value.charAt(0).toUpperCase() + value.slice(1)
+})
+
+24 > For date formatting we are going to use moment.js
+npm install moment --save
+
+Vue.filter('myDate', function(created_at) {
+    return moment(created_at).format('MMMM Do YYYY');
+})
 
 
 
