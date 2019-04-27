@@ -174,6 +174,9 @@ Vue.use(VueProgressBar, options)
 in master.blade.php
 <vue-progress-bar></vue-progress-bar>
 
+26 > npm install sweetalert2
+
+
 
 
 

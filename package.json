@@ -25,6 +25,7 @@
         "bootstrap-vue": "^2.0.0-rc.18",
         "moment": "^2.24.0",
         "nprogress": "^0.2.0",
+        "sweetalert2": "^8.8.7",
         "vform": "^1.0.0",
         "vue-progressbar": "^0.7.5",
         "vue-router": "^3.0.6",
