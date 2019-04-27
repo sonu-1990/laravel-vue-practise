@@ -175,7 +175,29 @@ in master.blade.php
 <vue-progress-bar></vue-progress-bar>
 
 26 > npm install sweetalert2
+import Swal from 'sweetalert2'
+window.Swal = Swal
 
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+});
+window.Toast = Toast
+
+Toast.fire({
+        type: 'success',
+        title: 'User Created successfully!'
+})
+$('#addNewModalCenter').modal('hide');
+
+27 > For getting the updated info all the time we used 
+setInterval(() => {
+    this.loadUsers()
+}, 3000)
+
+asked for the data after every 3 seconds.
 
 
 

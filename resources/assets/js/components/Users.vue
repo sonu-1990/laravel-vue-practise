@@ -154,6 +154,9 @@
         created() {
             this.$Progress.start()
             this.loadUsers();
+            setInterval(() => {
+                this.loadUsers();
+            }, 3000);
             this.$Progress.finish()
         }
     }
