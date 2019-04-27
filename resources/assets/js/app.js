@@ -22,8 +22,6 @@ const Toast = Swal.mixin({
 });
 window.Toast = Toast
 
-
-
 window.Form = Form;
 
 Vue.component(HasError.name, HasError)
@@ -49,6 +47,8 @@ Vue.filter('capitalize', function (value) {
 Vue.filter('dateFormat', function(created_at) {
     return moment(created_at).format('MMMM Do YYYY');
 })
+
+window.Fire = new Vue();
 
 let axios = require('axios');
 const routes = [

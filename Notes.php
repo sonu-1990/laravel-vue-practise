@@ -199,6 +199,30 @@ setInterval(() => {
 
 asked for the data after every 3 seconds.
 
+28 > It is not a good idea to send request every after 3 seconds
+if user is not doing anything so instead of sending request 
+after every 3 seconds we will use Fire (Vue js custom event)
+window.Fire = new Vue()
+
+Fire.$emit('afterUserCreated') "Hey I am throwing something."
+
+this.form.post('api/users')
+.then(() => {
+    Fire.$emit('AfterCreate');
+}).catch(() => { }
+
+created() {
+    this.loadUsers();
+    "Hey I am catching"
+    Fire.$on('AfterCreate', () => {
+        this.loadUsers(); 
+    });
+    // setInterval(() => {
+    //     this.loadUsers();
+    // }, 3000);
+}
+
+
 
 
 

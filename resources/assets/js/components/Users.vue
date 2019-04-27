@@ -143,6 +143,12 @@
             createUser() {
                 this.$Progress.start()
                 this.form.post('api/users')
+                .then(() => {
+                    Fire.$emit('AfterCreate');
+                }).catch(() => {
+
+                })
+                
                 Toast.fire({
                         type: 'success',
                         title: 'User Created successfully!'
@@ -152,12 +158,13 @@
             }
         },
         created() {
-            this.$Progress.start()
             this.loadUsers();
-            setInterval(() => {
-                this.loadUsers();
-            }, 3000);
-            this.$Progress.finish()
+            Fire.$on('AfterCreate', () => {
+                this.loadUsers(); 
+            });
+            // setInterval(() => {
+            //     this.loadUsers();
+            // }, 3000);
         }
     }
 </script>

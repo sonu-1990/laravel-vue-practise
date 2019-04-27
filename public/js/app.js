@@ -17981,6 +17981,8 @@ Vue.filter('dateFormat', function (created_at) {
     return __WEBPACK_IMPORTED_MODULE_0_moment___default()(created_at).format('MMMM Do YYYY');
 });
 
+window.Fire = new Vue();
+
 var axios = __webpack_require__(4);
 var routes = [{ path: '/dashboard', component: __webpack_require__(173) }, { path: '/profile', component: __webpack_require__(176) }, { path: '/users', component: __webpack_require__(179) }];
 
@@ -65854,7 +65856,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         createUser: function createUser() {
             this.$Progress.start();
-            this.form.post('api/users');
+            this.form.post('api/users').then(function () {
+                Fire.$emit('AfterCreate');
+            }).catch(function () {});
+
             Toast.fire({
                 type: 'success',
                 title: 'User Created successfully!'
@@ -65866,12 +65871,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this2 = this;
 
-        this.$Progress.start();
         this.loadUsers();
-        setInterval(function () {
+        Fire.$on('AfterCreate', function () {
             _this2.loadUsers();
-        }, 3000);
-        this.$Progress.finish();
+        });
+        // setInterval(() => {
+        //     this.loadUsers();
+        // }, 3000);
     }
 });
 
