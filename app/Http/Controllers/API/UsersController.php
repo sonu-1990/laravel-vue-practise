@@ -83,7 +83,13 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findorfail($id);
+        $this->validate($request,[
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users,email,'. $user->id,
+            'password' => 'sometimes|string|min:6'
+        ]);
+        $user->update($request->all());
     }
 
     /**
