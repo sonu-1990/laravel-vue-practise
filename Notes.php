@@ -255,6 +255,26 @@ edit mode true means edit the data else create the data
 and when we close and open the modal just change the value of
 editMode
 
+3 > For updating info we need to use put method of vue form
+then
+updateUser() {
+    this.form.put('api/users/'+ this.form.id)
+    .then(() => {
+        this.$Progress.start()
+        Fire.$emit('AfterCreate');
+        Swal.fire(
+        'Updated',
+        'User updated successfully.',
+        'success'
+        )
+        $('#addNewModalCenter').modal('hide');
+        this.$Progress.finish()
+    })
+    .catch(() => {
+        this.$Progress.fail()
+    })
+},
+
 
 
 
