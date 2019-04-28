@@ -248,6 +248,13 @@ editModal(user) {
     $('#addNewModalCenter').modal('show');
 },
 
+31 > Conditionally call update and add action.
+@submit.prevent="editMode ? updateUser() : createUser() ;"
+edit mode true means edit the data else create the data 
+
+and when we close and open the modal just change the value of
+editMode
+
 
 
 

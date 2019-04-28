@@ -53,12 +53,17 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="addNewModalLongTitle">Modal title</h5>
+                        <h5 v-show="!editMode" class="modal-title" id="addNewModalLongTitle">
+                            Add New
+                        </h5>
+                        <h5 v-show="editMode" class="modal-title" id="addNewModalLongTitle">
+                            Update User Info
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
-                        <form @submit.prevent="createUser">
+                        <form @submit.prevent="editMode ? updateUser() : createUser() ;">
                             <div class="modal-body">
                             <!-- User Form Start -->
                             <div class="form-group">
@@ -103,7 +108,12 @@
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Create</button>
+                            <button v-show="!editMode" type="submit" class="btn btn-primary">
+                                Create
+                            </button>
+                            <button v-show="editMode" type="submit" class="btn btn-success">
+                                Update
+                            </button>
                             </div>
                         </form>
                     </div>
@@ -120,6 +130,7 @@
             return {
                 users: {}, 
                 loading: false,
+                editMode: false,
                 form:new Form({
                     name:'',
                     email:'',
@@ -131,11 +142,16 @@
             }
         },
         methods: {
+            updateUser() {
+                console.log("Editing data");
+            },
             addModal() {
+                this.editMode = false;
                 this.form.reset()
                 $('#addNewModalCenter').modal('show');
             },
             editModal(user) {
+                this.editMode = true;
                 this.form.fill(user);
                 $('#addNewModalCenter').modal('show');
             },
