@@ -9,7 +9,7 @@
                         <div class="card-tools">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-success mt-4" 
-                        data-toggle="modal" data-target="#addNewModalCenter">Add New
+                       @click="addModal">Add New
                             <i class="fa fa-user-plus"></i>
                         </button>
     
@@ -33,7 +33,7 @@
                             <td>{{ user.type | capitalize}}</td>
                             <td>{{ user.created_at | dateFormat }}</td>
                             <td>
-                                <a href="#">
+                                <a href="#" @click="editModal(user)">
                                     <i class="fa fa-edit"></i>
                                 </a> /
                                 <a href="#" @click="deleteUser(user.id)">
@@ -131,6 +131,14 @@
             }
         },
         methods: {
+            addModal() {
+                this.form.reset()
+                $('#addNewModalCenter').modal('show');
+            },
+            editModal(user) {
+                this.form.fill(user);
+                $('#addNewModalCenter').modal('show');
+            },
             loadUsers() {
                 this.$Progress.start()
                 axios.get('/api/users')

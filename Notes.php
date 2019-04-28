@@ -236,6 +236,19 @@ this.form.delete('api/users/'+id) //Look at this- this.form.delete
     
 })
 
+30 > You can use same modal for edit and update just by calling
+when edit send complete user object to modal
+when add just clear the vus js form .
+addModal() {
+    this.form.reset()
+    $('#addNewModalCenter').modal('show');
+},
+editModal(user) {
+    this.form.fill(user);
+    $('#addNewModalCenter').modal('show');
+},
+
+
 
 
 
