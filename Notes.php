@@ -222,6 +222,19 @@ created() {
     // }, 3000);
 }
 
+29 > For deleting record we need to send delete request,
+such as
+this.form.delete('api/users/'+id) //Look at this- this.form.delete
+.then(() => {
+    Fire.$emit('AfterCreate')
+    Swal.fire(
+    'Deleted!',
+    'User deleted successfully.',
+    'success'
+    )
+}).catch(() => {
+    
+})
 
 
 

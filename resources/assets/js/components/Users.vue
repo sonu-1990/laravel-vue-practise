@@ -36,7 +36,9 @@
                                 <a href="#">
                                     <i class="fa fa-edit"></i>
                                 </a> /
-                                <a href="#"><i class="fa fa-trash text text-danger"></i></a>
+                                <a href="#" @click="deleteUser(user.id)">
+                                    <i class="fa fa-trash text text-danger"></i>
+                                </a>
                             </td>
                         </tr>
                         </tbody></table>
@@ -145,18 +147,44 @@
                 this.form.post('api/users')
                 .then(() => {
                     Fire.$emit('AfterCreate');
+                    Toast.fire({
+                        type: 'success',
+                        title: 'User Created successfully!'
+                    })
+                    $('#addNewModalCenter').modal('hide');
+                    this.$Progress.finish()
                 }).catch(() => {
 
                 })
-                
-                Toast.fire({
-                        type: 'success',
-                        title: 'User Created successfully!'
+            },
+            deleteUser(id) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    
+                    if (result.value) {
+                        this.form.delete('api/users/'+id)
+                        .then(() => {
+                            Fire.$emit('AfterCreate')
+                            Swal.fire(
+                            'Deleted!',
+                            'User deleted successfully.',
+                            'success'
+                            )
+                        }).catch(() => {
+                            
+                        })
+                    }
                 })
-                $('#addNewModalCenter').modal('hide');
-                this.$Progress.finish()
             }
         },
+        
         created() {
             this.loadUsers();
             Fire.$on('AfterCreate', () => {
