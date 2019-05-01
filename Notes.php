@@ -287,6 +287,15 @@ Or composer require laravel/passport based on laravel as well as php version.
 just follow the link on laravel documentation
 https://laravel.com/docs/5.5/passport#consuming-your-api-with-javascript
 
+* >Important note when using images in public folder as a background image
+in vue component then you can not use asset with src attribute of image 
+it gives you an error as src is not an attribute 
+but in case of background color you must use url()
+function such as 
+
+if your component in resources/js/components
+then use in one of the component as 
+url('./img/photo1') <- where img is public/img
 
 
 

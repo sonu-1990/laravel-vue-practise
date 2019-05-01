@@ -1,14 +1,121 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Profile Component</div>
-
-                    <div class="panel-body">
-                        I'm an example component!
+            <div class="col-md-11">
+               <!-- dhfjsdhfj -->
+            <div class="card card-widget widget-user">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header text-white" style="background: url('./img/photo1.png') center center;">
+                <h3 class="widget-user-username">Elizabeth Pierce</h3>
+                <h5 class="widget-user-desc">Web Designer</h5>
+              </div>
+              <div class="widget-user-image">
+                <img class="img-circle" src="url('./img/photo1.png')" alt="User Avatar">
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">3,200</h5>
+                      <span class="description-text">SALES</span>
                     </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">13,000</h5>
+                      <span class="description-text">FOLLOWERS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-4">
+                    <div class="description-block">
+                      <h5 class="description-header">35</h5>
+                      <span class="description-text">PRODUCTS</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
                 </div>
+                <!-- /.row -->
+              </div>
+            </div>
+               <!-- sjhdashdj -->
+            </div>
+            <div class="col-md-11">
+                <!-- sdjasjd -->
+
+               
+                <div class="card">
+                <div class="card-header p-2">
+                    <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link active show" href="#settings" data-toggle="tab">Settings</a></li>
+                    </ul>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content">
+
+                    <div class="tab-pane active show" id="settings">
+                        <form class="">
+                        <div class="form-group">
+                            <label for="name" class="control-label">Name</label>
+
+                            <div class="">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class=" control-label">Email</label>
+
+                            <div class="">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="experience" class=" control-label">Experience</label>
+
+                            <div class="">
+                            <textarea class="form-control" id="experience" name="experience" placeholder="Experience"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="photo" class=" control-label">Profile Photo</label>
+
+                            <div class="">
+                                <input type="file" class="form-control" id="photo" name="photo" placeholder="Photo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="passport" class=" control-label">
+                                    Passport(leave empty if not changing)
+
+                                </label>
+    
+                                <div class="">
+                                <input type="text" class="form-control" id="passport" name="passport" placeholder="Passport">
+                                </div>
+                        </div>
+
+                        
+                        <div class="form-group">
+                            <div class="">
+                            <button type="submit" class="btn btn-success">Update</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div><!-- /.card-body -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+          
+                <!-- sdjashd -->
             </div>
         </div>
     </div>
