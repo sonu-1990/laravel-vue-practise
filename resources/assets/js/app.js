@@ -24,6 +24,12 @@ window.Toast = Toast
 
 window.Form = Form;
 
+// Vue.http.interceptors.push((request, next) => {
+//     request.headers.set('X-CSRF-TOKEN', Laravel.csrfToken);
+//     request.headers.set('X-Requested-With', 'XMLHttpRequest');
+//     next();
+// });
+
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 

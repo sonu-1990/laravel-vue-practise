@@ -17957,6 +17957,12 @@ window.Toast = Toast;
 
 window.Form = __WEBPACK_IMPORTED_MODULE_1_vform__["Form"];
 
+// Vue.http.interceptors.push((request, next) => {
+//     request.headers.set('X-CSRF-TOKEN', Laravel.csrfToken);
+//     request.headers.set('X-Requested-With', 'XMLHttpRequest');
+//     next();
+// });
+
 Vue.component(__WEBPACK_IMPORTED_MODULE_1_vform__["HasError"].name, __WEBPACK_IMPORTED_MODULE_1_vform__["HasError"]);
 Vue.component(__WEBPACK_IMPORTED_MODULE_1_vform__["AlertError"].name, __WEBPACK_IMPORTED_MODULE_1_vform__["AlertError"]);
 

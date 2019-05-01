@@ -283,6 +283,11 @@ Or composer require laravel/passport based on laravel as well as php version.
 4. php artisan passport:install
 
 
+* > For securing our api from unauthorized user
+just follow the link on laravel documentation
+https://laravel.com/docs/5.5/passport#consuming-your-api-with-javascript
+
+
 
 
 
