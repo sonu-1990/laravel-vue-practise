@@ -275,6 +275,12 @@ updateUser() {
     })
 },
 
+* > Laravel passport authentication
+1. composer require laravel/passport "4.0.3"
+Or composer require laravel/passport based on laravel as well as php version.
+2. php artisan vendor:publish --tag=passport-migrations
+3. php artisan migrate
+4. php artisan passport:install
 
 
 
