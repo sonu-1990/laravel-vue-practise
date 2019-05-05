@@ -99,6 +99,11 @@ class UsersController extends Controller
     {
         $user =  Auth::user();
         $currentPhoto = $user->photo;
+        $this->validate($request,[
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users,email,'. $user->id,
+            'password' => 'sometimes|string|min:6'
+        ]);
         //dd(explode('/', $request->photo))[1];
         if ($request->photo != $currentPhoto) {
             $name = time().'.' . explode('/', explode(':', substr($request->photo, 0, strpos($request->photo, ';')))[1])[1];
@@ -109,6 +114,17 @@ class UsersController extends Controller
             // jpeg so name is 12345666.jpeg
             \Image::make($request->photo)->save(public_path('img/profile/').$name);
             $request->merge(['photo' => $name]);
+
+            // Check that user updated his / her photo 
+            // I yes then delete the old one.
+            $userPhoto = public_path('img/profile/').$currentPhoto;
+            if (file_exists($userPhoto)) {
+                @unlink($userPhoto);
+            }
+
+        }
+        if (!empty($request->password)) {
+            $request->merge(['password' => Hash::make($request['password'])]);
         }
 
         $user->update($request->all());

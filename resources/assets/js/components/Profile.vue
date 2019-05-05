@@ -68,22 +68,30 @@
                             <label for="name" class="control-label">Name</label>
 
                             <div class="">
-                            <input type="text" v-model="form.name" class="form-control" id="name" name="name" placeholder="Name">
+                            <input type="text" v-model="form.name" 
+                            class="form-control" :class="{ 'is-invalid': form.errors.has('name') }"
+                             id="name" name="name" placeholder="Name">
+                             <has-error :form="form" field="name"></has-error>
+
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email" class=" control-label">Email</label>
 
                             <div class="">
-                            <input type="email"  v-model="form.email" class="form-control" id="email" name="email" placeholder="Email">
+                            <input type="email"  :class="{ 'is-invalid': form.errors.has('email') }" 
+                            v-model="form.email" 
+                            class="form-control" id="email" name="email" placeholder="Email">
+                            <has-error :form="form" field="email"></has-error>
+
                             </div> 
                         </div>
                        
                         <div class="form-group">
-                            <label for="experience" class=" control-label">Experience</label>
+                            <label for="bio" class=" control-label">Bio</label>
 
                             <div class="">
-                            <textarea class="form-control"  v-model="form.experience" id="experience" name="experience" placeholder="Experience"></textarea>
+                            <textarea class="form-control"  v-model="form.bio" id="bio" name="Write something" placeholder="Experience"></textarea>
                             </div>
                         </div>
 
@@ -101,7 +109,11 @@
                                 </label>
     
                                 <div class="">
-                                <input type="text" v-model="form.password" class="form-control" id="password" name="password" placeholder="Passport">
+                                <input type="text" v-model="form.password" 
+                                :class="{ 'is-invalid': form.errors.has('password') }"
+                                class="form-control" id="password" name="password" 
+                                placeholder="Passport">
+                                <has-error :form="form" field="password"></has-error>
                                 </div>
                         </div>
 

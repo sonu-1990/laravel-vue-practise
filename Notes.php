@@ -328,15 +328,16 @@ php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLa
 http://image.intervention.io/getting_started/installation
 
 let limit = 1024 * 3;
-                if (file['size'] < limit) {
-                    Swal.fire({
-                    type: 'error',
-                    title: 'Oops...',
-                    text: 'Image size is large please upload image of 2MB',
-                    })
-                } else {
-                    reader.onloadend = (file) => {
-                    this.form.photo = reader.result;
-                    }
-                    reader.readAsDataURL(file);
-                }
+if (file['size'] < limit) {
+    Swal.fire({
+    type: 'error',
+    title: 'Oops...',
+    text: 'Image size is large please upload image of 2MB',
+    })
+} else {
+    reader.onloadend = (file) => {
+    this.form.photo = reader.result;
+    }
+    reader.readAsDataURL(file);
+}
+https://github.com/Hujjat/laravStart/blob/master/resources/assets/js/components/Profile.vue
