@@ -69004,7 +69004,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         profileImage: function profileImage() {
-            return 'img/profile/' + this.form.photo;
+            var picture = this.form.photo.length > 200 ? this.form.photo : 'img/profile/' + this.form.photo;
+            return picture;
         },
         updateProfile: function updateProfile(e) {
             var _this = this;

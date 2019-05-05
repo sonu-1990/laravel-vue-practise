@@ -158,7 +158,8 @@
         },
         methods: {
             profileImage() {
-                return 'img/profile/'+this.form.photo;
+                let picture = (this.form.photo.length > 200) ? this.form.photo : 'img/profile/'+this.form.photo ;
+                return picture;
             },
             updateProfile(e) {
                 let file    = e.target.files[0]; //sames as here
