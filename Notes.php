@@ -341,3 +341,6 @@ if (file['size'] < limit) {
     reader.readAsDataURL(file);
 }
 https://github.com/Hujjat/laravStart/blob/master/resources/assets/js/components/Profile.vue
+
+
+38
