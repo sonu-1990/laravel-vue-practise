@@ -19,7 +19,7 @@ class UsersController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('web');
+        $this->middleware('auth');
     }
 
 
@@ -89,6 +89,29 @@ class UsersController extends Controller
         return Auth::user();
         //return response()->json(['success' => $user], $this->successStatus);
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateProfile(Request $request)
+    {
+        $user =  Auth::user();
+        //dd(explode('/', $request->photo))[1];
+        if ($request->photo) {
+            $name = time().'.' . explode('/', explode(':', substr($request->photo, 0, strpos($request->photo, ';')))[1])[1];
+            //data:image/jpeg 
+            // 1. explode with : 
+            // then take the string from 0 means i in image/jpeg to ;
+            // we get image/jpeg now explode with / we get 
+            // jpeg so name is 12345666.jpeg
+            \Image::make($request->photo)->save(public_path('img/profile/').$name);
+
+        }
+        
+    }
+
 
     /**
      * Show the form for editing the specified resource.

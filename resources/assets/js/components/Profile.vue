@@ -108,7 +108,7 @@
                         
                         <div class="form-group">
                             <div class="">
-                            <button type="submit" class="btn btn-success">Update</button>
+                            <button  @click.prevent="updateInfo" type="button" class="btn btn-success">Update</button>
                             </div>
                         </div>
                         </form>
@@ -137,7 +137,7 @@
                     password:'',
                     type:'',             
                     bio:'',                
-                    photo:''
+                    photo:'',
                 })
             }
         },
@@ -146,12 +146,32 @@
         },
         methods: {
             updateProfile(e) {
-                var file    = e.target.files[0]; //sames as here
-                var reader  = new FileReader();
-                reader.onloadend = (file) => {
+                let file    = e.target.files[0]; //sames as here
+                let reader  = new FileReader();
+                let limit = 1024 * 3;
+                if (file['size'] < limit) {
+                    Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'Image size is large please upload image of 2MB',
+                    })
+                } else {
+                    reader.onloadend = (file) => {
                     this.form.photo = reader.result;
+                    }
+                    reader.readAsDataURL(file);
                 }
-                reader.readAsDataURL(file);
+                
+            },
+            updateInfo() {
+                this.$Progress.start();
+                this.form.put('api/profile')
+                .then(() => {
+                    this.$Progress.finish();
+                })
+                .catch(() => {
+                    this.$Progress.fail();
+                });
             }
         },
         created() {

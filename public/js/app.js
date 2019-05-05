@@ -68996,17 +68996,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var file = e.target.files[0]; //sames as here
             var reader = new FileReader();
-            reader.onloadend = function (file) {
-                _this.form.photo = reader.result;
-            };
-            reader.readAsDataURL(file);
+            var limit = 1024 * 3;
+            if (file['size'] < limit) {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'Image size is large please upload image of 2MB'
+                });
+            } else {
+                reader.onloadend = function (file) {
+                    _this.form.photo = reader.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        },
+        updateInfo: function updateInfo() {
+            var _this2 = this;
+
+            this.$Progress.start();
+            this.form.put('api/profile').then(function () {
+                _this2.$Progress.finish();
+            }).catch(function () {
+                _this2.$Progress.fail();
+            });
         }
     },
     created: function created() {
-        var _this2 = this;
+        var _this3 = this;
 
         axios.get('api/profile').then(function (response) {
-            return _this2.form.fill(response.data);
+            return _this3.form.fill(response.data);
         }).catch(function () {
             console.log("Sorry unable to get the user data");
         });
@@ -69188,7 +69207,24 @@ var render = function() {
                     _vm._v(" "),
                     _vm._m(2),
                     _vm._v(" "),
-                    _vm._m(3)
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("div", {}, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.updateInfo($event)
+                              }
+                            }
+                          },
+                          [_vm._v("Update")]
+                        )
+                      ])
+                    ])
                   ])
                 ]
               )
@@ -69314,20 +69350,6 @@ var staticRenderFns = [
             placeholder: "Passport"
           }
         })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("div", {}, [
-        _c(
-          "button",
-          { staticClass: "btn btn-success", attrs: { type: "submit" } },
-          [_vm._v("Update")]
-        )
       ])
     ])
   }

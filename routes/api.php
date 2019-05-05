@@ -13,10 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('web')->get('/user', function (Request $request) {
+Route::middleware('auth')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::apiResources(['users' => 'API\UsersController']);
 Route::get('/profile', 'API\UsersController@profile');
+Route::put('/profile', 'API\UsersController@updateProfile');
+
 

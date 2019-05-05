@@ -301,4 +301,42 @@ composer require paragonie/random_compat=~2.0
 composer require laravel/passport=~4.0
 https://github.com/anil-sidhu/laravel-passport-poc
 
+* > For uploading image using vue js and laravel 
+what we do is we call @change method on input type file like as 
+<input type="file" @change="updateProfile" class="form-control" id="photo" name="photo" placeholder="Photo">
 
+then in js 
+methods: {
+    updateProfile(e) {
+        var file    = e.target.files[0]; //sames as here
+        var reader  = new FileReader();
+        reader.onloadend = (file) => {
+            this.form.photo = reader.result;
+        }
+        reader.readAsDataURL(file);
+    }
+},
+
+
+https://stackoverflow.com/questions/49884611/api-requests-with-axios-always-unauthorized-with-laravel-api
+
+
+* > Image Upload in laravel and vue
+composer require intervention/image
+php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravel5"
+
+http://image.intervention.io/getting_started/installation
+
+let limit = 1024 * 3;
+                if (file['size'] < limit) {
+                    Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'Image size is large please upload image of 2MB',
+                    })
+                } else {
+                    reader.onloadend = (file) => {
+                    this.form.photo = reader.result;
+                    }
+                    reader.readAsDataURL(file);
+                }
