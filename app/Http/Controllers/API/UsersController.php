@@ -6,18 +6,23 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
+    public $successStatus = 200;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth:api');
-    // }
+    public function __construct()
+    {
+        $this->middleware('web');
+    }
+
+
 
     /**
      * Display a listing of the resource.
@@ -71,6 +76,18 @@ class UsersController extends Controller
     public function show($id)
     {
         //
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function profile()
+    {
+        return Auth::user();
+        //return response()->json(['success' => $user], $this->successStatus);
     }
 
     /**

@@ -297,6 +297,8 @@ if your component in resources/js/components
 then use in one of the component as 
 url('./img/photo1') <- where img is public/img
 
-
+composer require paragonie/random_compat=~2.0
+composer require laravel/passport=~4.0
+https://github.com/anil-sidhu/laravel-passport-poc
 
 

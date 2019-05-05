@@ -107,6 +107,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 					Profile
 				</p>
 				</router-link>
+      </li>
+      <li class="nav-item">
+				<router-link to="/developer" class="nav-link">
+				<i class="nav-icon fas fa-cogs"></i>
+				<p>
+					Developer
+				</p>
+				</router-link>
 			</li>
 			<li class="nav-item">
 				<a href="{{ route('logout') }}" class="nav-link"
@@ -153,13 +161,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </footer>
 </div>
 <!-- ./wrapper -->
-
+@auth
+<script>
+    window.user = @json(auth()->user())
+</script>
+@endauth
 <!-- REQUIRED SCRIPTS -->
 <script src="{{ asset('js/app.js') }}"></script>
-<script>
-        window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-        ]); ?>
-</script>
 </body>
 </html>

@@ -18,6 +18,11 @@ return [
         'passwords' => 'users',
     ],
 
+    // 'defaults' => [
+    //     'guard' => 'auth',
+    //     'passwords' => 'users',
+    // ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -42,7 +47,7 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'users',
         ],
     ],

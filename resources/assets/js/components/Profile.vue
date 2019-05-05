@@ -1,3 +1,8 @@
+<style>
+.widget-user .widget-user-header{
+    height: 250px !important;
+}
+</style>
 <template>
     <div class="container">
         <div class="row">
@@ -10,7 +15,7 @@
                 <h5 class="widget-user-desc">Web Designer</h5>
               </div>
               <div class="widget-user-image">
-                <img class="img-circle" src="url('./img/photo1.png')" alt="User Avatar">
+                <img class="img-circle" src="" alt="User Avatar">
               </div>
               <div class="card-footer">
                 <div class="row">
@@ -63,22 +68,22 @@
                             <label for="name" class="control-label">Name</label>
 
                             <div class="">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                            <input type="text" v-model="form.name" class="form-control" id="name" name="name" placeholder="Name">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email" class=" control-label">Email</label>
 
                             <div class="">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                            </div>
+                            <input type="email"  v-model="form.email" class="form-control" id="email" name="email" placeholder="Email">
+                            </div> 
                         </div>
                        
                         <div class="form-group">
                             <label for="experience" class=" control-label">Experience</label>
 
                             <div class="">
-                            <textarea class="form-control" id="experience" name="experience" placeholder="Experience"></textarea>
+                            <textarea class="form-control"  v-model="form.experience" id="experience" name="experience" placeholder="Experience"></textarea>
                             </div>
                         </div>
 
@@ -86,17 +91,17 @@
                             <label for="photo" class=" control-label">Profile Photo</label>
 
                             <div class="">
-                                <input type="file" class="form-control" id="photo" name="photo" placeholder="Photo">
+                                <input type="file" @change="updateProfile" class="form-control" id="photo" name="photo" placeholder="Photo">
                             </div>
                         </div>
                         <div class="form-group">
-                                <label for="passport" class=" control-label">
-                                    Passport(leave empty if not changing)
+                                <label for="password" class=" control-label">
+                                    Password (leave empty if not changing)
 
                                 </label>
     
                                 <div class="">
-                                <input type="text" class="form-control" id="passport" name="passport" placeholder="Passport">
+                                <input type="text" class="form-control" id="password" name="password" placeholder="Passport">
                                 </div>
                         </div>
 
@@ -123,8 +128,38 @@
 
 <script>
     export default {
+        data() {
+            return {
+                form:new Form({
+                    id : '',
+                    name:'',
+                    email:'',
+                    password:'',
+                    type:'',             
+                    bio:'',                
+                    photo:''
+                })
+            }
+        },
         mounted() {
             console.log('Component mounted.')
+        },
+        methods: {
+            updateProfile(e) {
+                var file    = e.target.files[0]; //sames as here
+                var reader  = new FileReader();
+                reader.onloadend = (file) => {
+                    this.form.photo = reader.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        },
+        created() {
+            axios.get('api/profile').
+            then((response) => this.form.fill(response.data))
+            .catch(() => {
+                console.log("Sorry unable to get the user data");
+            })
         }
     }
 </script>

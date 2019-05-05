@@ -59,6 +59,7 @@ window.Fire = new Vue();
 let axios = require('axios');
 const routes = [
     { path: '/dashboard', component: require('./components/Dashboard.vue') },
+    { path: '/developer', component: require('./components/Developer.vue') },
     { path: '/profile', component: require('./components/Profile.vue')},
     { path: '/users', component: require('./components/Users.vue')}
 
@@ -73,7 +74,20 @@ const router = new VueRouter({
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue')
+);
 
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue')
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue')
+);
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
