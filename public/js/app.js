@@ -69205,7 +69205,53 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(2),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: " control-label",
+                          attrs: { for: "password" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Password (leave empty if not changing)\n\n                            "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.password,
+                              expression: "form.password"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "password",
+                            name: "password",
+                            placeholder: "Passport"
+                          },
+                          domProps: { value: _vm.form.password },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "password",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group" }, [
                       _c("div", {}, [
@@ -69322,34 +69368,6 @@ var staticRenderFns = [
             [_vm._v("Settings")]
           )
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "label",
-        { staticClass: " control-label", attrs: { for: "password" } },
-        [
-          _vm._v(
-            "\n                                Password (leave empty if not changing)\n\n                            "
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", {}, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            id: "password",
-            name: "password",
-            placeholder: "Passport"
-          }
-        })
       ])
     ])
   }

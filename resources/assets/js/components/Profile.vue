@@ -95,13 +95,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                                <label for="password" class=" control-label">
+                                <label for="password"  class=" control-label">
                                     Password (leave empty if not changing)
 
                                 </label>
     
                                 <div class="">
-                                <input type="text" class="form-control" id="password" name="password" placeholder="Passport">
+                                <input type="text" v-model="form.password" class="form-control" id="password" name="password" placeholder="Passport">
                                 </div>
                         </div>
 
