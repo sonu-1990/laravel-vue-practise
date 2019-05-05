@@ -343,4 +343,10 @@ if (file['size'] < limit) {
 https://github.com/Hujjat/laravStart/blob/master/resources/assets/js/components/Profile.vue
 
 
-38
+* > 
+profileImage() {
+let picture = (this.form.photo.length > 200) ? this.form.photo : 'img/profile/'+this.form.photo ;
+return picture;
+},
+
+* > https://laravel.com/docs/5.5/authorization#gates
